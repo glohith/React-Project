@@ -1,7 +1,8 @@
 import { useState } from "react";
+import ListComponent from "./ListComponent";
 
 function ListGroups() {
-  let items = ["San Fransisico", "NewYork", "Tokyo", "London", "Paris"];
+  let cities = ["San Fransisico", "NewYork", "Tokyo", "London", "Paris"];
 
   const mountainNames: string[] = [
     // The Seven Summits
@@ -24,60 +25,41 @@ function ListGroups() {
     "Fitz Roy",
   ];
 
-  let [selectindex, setSelectindex] = useState(0);
+  const Rivers: string[] = [
+  "Ganges",
+  "Yamuna",
+  "Godavari",
+  "Krishna",
+  "Narmada",
+  "Brahmaputra",
+  "Mahanadi",
+  "Kaveri",
+  "Tapi",
+  "Sutlej"
+];
 
-  let [mountainindex, mountainselectindex] = useState(0);
 
-  const getmessage = () => items.length === 0 && <p>no item found</p>;
+  
 
   return (
     <>
-      <h1>Cities</h1>
-      <h2 className="p-3">
-        City slected is <b>{selectindex}</b> and name is{" "}
-        <b>
-          <u>{items[selectindex]}</u>
-        </b>
-      </h2>
+      <div className="d-flex justify-content-between mb-3">
+        <div className="pe-2">
+          <ListComponent name="Cities" shortName="City" listObject={cities}/>
+          
+        </div>
+        <div className="ps-2">
+          <ListComponent  name="Mountains" shortName="Mountain" listObject={mountainNames}/>
+        </div>
 
-      {getmessage()}
-      <ul className="list-group">
-        {items.map((item, index) => (
-          <li
-            className={
-              selectindex === index
-                ? "list-group-item active"
-                : "list-group-item"
-            }
-            key={item}
-            onClick={() => setSelectindex(index)}
-          >
-            {item}
-          </li>
-        ))}
+        
+      <div className="ps-2">
+        <ListComponent name="Rivers" shortName="River" listObject={Rivers}/>
+      </div>
+      </div>
 
-        <h1>Mountains</h1>
-        <h2 className="p-4">
-          Mountain selected is{" "}
-          <b>
-            {mountainindex} and name is <u>{mountainNames[mountainindex]}</u>
-          </b>
-        </h2>
 
-        {mountainNames.map((mountainName, index) => (
-          <li
-            className={
-              mountainindex === index
-                ? "list-group-item active"
-                : "list-group-item"
-            }
-            key={mountainName}
-            onClick={() => mountainselectindex(index)}
-          >
-            {mountainName}
-          </li>
-        ))}
-      </ul>
+      
     </>
   );
 }
