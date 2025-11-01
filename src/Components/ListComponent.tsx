@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ListComponent = ({name, shortName, listObject}) => {
+const ListComponent = ({name, shortName, listObject, sendValueToParent}) => {
 
 let [selectindex, setSelectindex] = useState(0);
 
@@ -26,7 +26,10 @@ let [selectindex, setSelectindex] = useState(0);
                     : "list-group-item"
                 }
                 key={item}
-               onClick={() => setSelectindex(index)}
+               onClick={() => {
+                sendValueToParent(listObject[index])
+                setSelectindex(index)
+            }}
               >
                 {item}
               </li>

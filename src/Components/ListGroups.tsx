@@ -38,23 +38,40 @@ function ListGroups() {
   "Sutlej"
 ];
 
+let [city, setCity ] = useState('bza')
+let [mountain, setMountain] = useState("shastha");
+let [river, setRiver] = useState("ganga");
 
   
 
   return (
     <>
+      <div
+        className="row justify-content-center align-items-center g-2"
+      >
+        <div className="col">
+          <h1>My Kids Selected this elements </h1>
+          <h2>{city}</h2>
+          <h2>{mountain}</h2>
+          <h2>{river}</h2>
+        </div>
+
+      </div>
+
+      <hr />
+      
       <div className="d-flex justify-content-between mb-3">
         <div className="pe-2">
-          <ListComponent name="Cities" shortName="City" listObject={cities}/>
+          <ListComponent name="Cities" shortName="City" listObject={cities} sendValueToParent = {setCity} />
           
         </div>
         <div className="ps-2">
-          <ListComponent  name="Mountains" shortName="Mountain" listObject={mountainNames}/>
+          <ListComponent  name="Mountains" shortName="Mountain" listObject={mountainNames} sendValueToParent={setMountain}/>
         </div>
 
         
       <div className="ps-2">
-        <ListComponent name="Rivers" shortName="River" listObject={Rivers}/>
+        <ListComponent name="Rivers" shortName="River" listObject={Rivers} sendValueToParent={setRiver}/>
       </div>
       </div>
 
