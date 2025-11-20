@@ -1,18 +1,22 @@
-import Fotter from "./Components/Fotter";
-import Header from "./Components/header";
-import ListGroups from "./Components/ListGroups";
+import { useState } from "react";
+import Form from "./Components/Form";
 
-function App() {
-  return (
+function App(){
 
-    <div className="container mt-2 ">
-      <Header/>
-      <ListGroups/>
-      <Fotter></Fotter>
+return(
+  <div>
+   <Form />
 
-      </div>
-    
-  );
-}
+  </div> 
+);
+
+
+
+
+ }
+
+  
+ 
+
 
 export default App;
